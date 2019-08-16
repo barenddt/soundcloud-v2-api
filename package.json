@@ -1,6 +1,6 @@
 {
   "name": "soundcloud-api-v2",
-  "version": "0.0.1",
+  "version": "0.0.7",
   "description": "Promise based Soundcloud V2 API interaction.",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,6 @@
     "soundcloud-api-v2"
   ],
   "dependencies": {
-    "cross-fetch": "^3.0.4",
-    "express": "^4.17.1"
+    "axios": "^0.19.0"
   }
 }

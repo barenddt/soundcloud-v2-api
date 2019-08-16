@@ -1,16 +1,43 @@
-const express = require("express");
-const SC = require("./sc");
+const axios = require("axios");
 
-const app = express();
+class SC {
+  init(config) {
+    this.config = config;
+  }
 
-app.use(express.json());
+  get(type, params) {
+    return new Promise((resolve, reject) => {
+      params.client_id = this.config.clientId;
+      let urlParameters = Object.entries(params)
+        .map(e => e.join("="))
+        .join("&");
 
-SC.init("tNdzqSQH10kJuLrRhPLbf5wtQEnaXmi1");
+      axios({
+        url: `${
+          this.config.host
+        }/https://api-v2.soundcloud.com/${type}?${urlParameters}`
+      })
+        .then(res => resolve(res.data))
+        .catch(err => reject(err));
+    });
+  }
 
-app.get("*", (req, res) => {
-  SC.get(req.url, req.body).then(data => res.json(data));
-});
+  get(type, params) {
+    return new Promise((resolve, reject) => {
+      params.client_id = this.config.clientId;
+      let urlParameters = Object.entries(params)
+        .map(e => e.join("="))
+        .join("&");
 
-app.listen(process.env.PORT || 8080, () => {
-  console.log("Listening on port 8080");
-});
+      axios({
+        url: `${
+          this.config.host
+        }/https://api.soundcloud.com/i1/${type}?${urlParameters}`
+      })
+        .then(res => resolve(res.data))
+        .catch(err => reject(err));
+    });
+  }
+}
+
+module.exports = new SC();

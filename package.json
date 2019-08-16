@@ -1,0 +1,21 @@
+{
+  "name": "soundcloud-api-v2",
+  "version": "0.0.1",
+  "description": "Promise based Soundcloud V2 API interaction.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Barend Du Toit",
+  "license": "MIT",
+  "keywords": [
+    "soundcloud",
+    "soundcloud-api",
+    "soundcloudapi",
+    "soundcloud-api-v2"
+  ],
+  "dependencies": {
+    "cross-fetch": "^3.0.4",
+    "express": "^4.17.1"
+  }
+}

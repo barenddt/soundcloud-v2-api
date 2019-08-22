@@ -21,7 +21,7 @@ class SC {
       axios({
         url: url,
         headers: {
-          origin: "https://soundcloud.com"
+          "x-requested-with": "https://soundcloud.com"
         }
       })
         .then(res => resolve(res.data))

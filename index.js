@@ -7,6 +7,7 @@ class SC {
 
   get(type, params) {
     return new Promise((resolve, reject) => {
+      params == undefined ? (params = {}) : null;
       params.client_id = this.config.clientId;
       let urlParameters = Object.entries(params)
         .map(e => e.join("="))
@@ -32,9 +33,7 @@ class SC {
   stream(type) {
     return new Promise((resolve, reject) => {
       axios({
-        url: `https://api.soundcloud.com/i1${type}?client_id=${
-          this.config.clientId
-        }`
+        url: `https://api.soundcloud.com/i1${type}?client_id=${this.config.clientId}`
       })
         .then(res => {
           let Track = new Audio(res.data.http_mp3_128_url);

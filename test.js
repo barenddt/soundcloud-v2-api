@@ -5,7 +5,7 @@ SC.init({
   cors: true
 });
 
-SC.get("/search/tracks", { q: "Crytix" })
+SC.get("/users/229875459", {})
   .then(res => console.log(res))
   .catch(err => {
     console.log(err);

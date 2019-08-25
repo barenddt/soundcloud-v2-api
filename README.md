@@ -11,13 +11,17 @@ This API controller was created for personal implementation in my project called
 
 ## <span id="install">Installation</span>
 
-   
-    yarn add soundcloud-v2-api
-    
-    or using npm:
-    
-    npm i soundcloud-v2-api
-    ```
+#### via NPM
+
+```
+npm i soundcloud-v2-api
+```
+
+#### via YARN
+
+```
+yarn add soundcloud-v2-api
+```
 
 ## Usage
 

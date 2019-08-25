@@ -17,37 +17,39 @@ This API controller was created for personal implementation in my project called
     or using npm:
     
     npm i soundcloud-v2-api
+    ```
 
-
+## Usage
 
 ### <span id="search">Example (Searching Tracks)</span>
+```javascript
+const SC = require('soundcloud-v2-api');
 
-    const SC = require('soundcloud-v2-api');
-    
-	SC.init({
-		clientId: 'YOUR_CLIENT_ID'
-	})
-	
-	SC.get('/search/tracks', { 
-		q: 'House', limit: 25 
-	}).then(result => {
-		console.log(result)
-	})
+SC.init({
+ clientId: 'YOUR_CLIENT_ID'
+})
+
+SC.get('/search/tracks', {
+ q: 'Post', limit: 50
+}).then(result => console.log(result))
+```
 
 ### <span id="stream">Example (Streaming  Tracks)</span>
 
-    //Initialize as in previous example
-    
-    SC.stream(`/tracks/${track.id}/streams`).then(stream => {
-	    stream.play()
-    })
+```javascript
+//Initialize as in previous example.
 
-### Usage in Browsers
-
-    SC.init({
-	    clientId: 'YOUR_CLIENT_ID',
-	    cors: true //Important to avoid CORS blocking response.
-    })
+SC.stream('/tracks/${track.id}/streams').then(stream => {
+ stream.play()
+})
+```
+### Usage in browsers
+```javascript
+SC.init({
+ clientId: 'YOUR_CLIENT_ID',
+ cors: true
+})
+```
 
 ## <span id="reference">API Reference</span>
 Here are some of the most common endpoints available to use.

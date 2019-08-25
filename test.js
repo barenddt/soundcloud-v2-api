@@ -5,7 +5,11 @@ SC.init({
   cors: true
 });
 
-SC.get("/users/229875459", {})
+SC.get("/tracks/668277719/comments", {
+  limit: 20,
+  threaded: 1,
+  filter_replies: 0
+})
   .then(res => console.log(res))
   .catch(err => {
     console.log(err);

@@ -41,6 +41,14 @@ This API controller was created for personal implementation in my project called
     SC.stream(`/tracks/${track.id}/streams`).then(stream => {
 	    stream.play()
     })
+
+### Usage in Browsers
+
+    SC.init({
+	    clientId: 'YOUR_CLIENT_ID',
+	    cors: true //Important to avoid CORS blocking response.
+    })
+
 ## <span id="reference">API Reference</span>
 Here are some of the most common endpoints available to use.
 ### /search/:type

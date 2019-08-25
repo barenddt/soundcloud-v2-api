@@ -73,8 +73,4 @@ Here are some of the most common endpoints available to use.
 |/|Tracks statistics and information|
 |reposters|List of users that reposted the track|
 |likers|List of users that liked the track|
-<<<<<<< HEAD
 |comments|List of comments on the track|
-=======
-|comments|List of comments on the track|
->>>>>>> aa52088c05d4d302c57c54c674932f187ee47216

@@ -2,16 +2,14 @@
 
 This API controller was created for personal implementation in my project called [Soundify](https://github.com/barenddt/soundify). Soundcloud does not currently provide a method for interacting with the new v2 API effectively. The v1 API is missing a lot of endpoints the v2 api has. (/charts to name one).
 
-<hr />
 
-### Navigation
+## Navigation
 
 - [Installation](#install)
 - Examples
   - [Searching](#search)
   - [Streaming](#stream)
 - [References](#reference)
-  <hr/>
 
 ### <span id="install">Installation</span>
 

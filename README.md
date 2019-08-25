@@ -8,8 +8,8 @@ This API controller was created for personal implementation in my project called
 
 - [Installation](#install)
 - Examples
-  _ [Searching](#search)
-  _ [Streaming](#stream)
+  - [Searching](#search)
+  - [Streaming](#stream)
 - [References](#reference)
   <hr/>
 
@@ -48,6 +48,7 @@ This API controller was created for personal implementation in my project called
 Here are some of the most common endpoints available to use.
 
 ### /search/:type
+
 
 | Types     | Returns                            |
 | --------- | ---------------------------------- |

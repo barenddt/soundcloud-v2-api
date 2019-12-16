@@ -46,7 +46,7 @@ class SC {
       })
         .then((res) => {
           console.log(res);
-          let Track = new Audio(res.data[0].media.transcodings[2].url);
+          let Track = new Audio(res.data[0].media.transcodings[1].url);
           Track.setVolume = (vol) => {
             Track.volume = vol;
           };

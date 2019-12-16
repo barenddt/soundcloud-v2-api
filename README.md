@@ -34,7 +34,8 @@ SC.init({
 })
 
 SC.get('/search/tracks', {
- q: 'Post', limit: 50
+ q: 'Post', 
+ limit: 50
 }).then(result => console.log(result))
 ```
 

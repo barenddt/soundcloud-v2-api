@@ -32,12 +32,21 @@ class SC {
 
   stream(type) {
     return new Promise((resolve, reject) => {
+      let url = `https://api-v2.soundcloud.com/tracks?ids=${type}&client_id=${this.config.clientId}`;
+
+      url = this.config.cors
+        ? "https://cors-anywhere.herokuapp.com/" + url
+        : url;
+
       axios({
-        url: `https://api-v2.soundcloud.com/tracks?ids=${type}&client_id=${this.config.clientId}`
+        url: url,
+        headers: {
+          "x-requested-with": "https://soundcloud.com"
+        }
       })
         .then((res) => {
-          let Track = new Audio(res.data[0].media.transcodings[0].url);
-          Track.url = res.data.http_mp3_128_url;
+          console.log(res);
+          let Track = new Audio(res.data[0].media.transcodings[2].url);
           Track.setVolume = (vol) => {
             Track.volume = vol;
           };

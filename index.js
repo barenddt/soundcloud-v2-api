@@ -10,7 +10,7 @@ class SC {
       params == undefined ? (params = {}) : null;
       params.client_id = this.config.clientId;
       let urlParameters = Object.entries(params)
-        .map(e => e.join("="))
+        .map((e) => e.join("="))
         .join("&");
 
       let url = `https://api-v2.soundcloud.com${type}?${urlParameters}`;
@@ -25,20 +25,20 @@ class SC {
           "x-requested-with": "https://soundcloud.com"
         }
       })
-        .then(res => resolve(res.data))
-        .catch(err => reject(err));
+        .then((res) => resolve(res.data))
+        .catch((err) => reject(err));
     });
   }
 
   stream(type) {
     return new Promise((resolve, reject) => {
       axios({
-        url: `https://api.soundcloud.com/i1${type}?client_id=${this.config.clientId}`
+        url: `https://api-v2.soundcloud.com/tracks?ids=${type}&client_id=${this.config.clientId}`
       })
-        .then(res => {
-          let Track = new Audio(res.data.http_mp3_128_url);
+        .then((res) => {
+          let Track = new Audio(res.data[0].media.transcodings[0].url);
           Track.url = res.data.http_mp3_128_url;
-          Track.setVolume = vol => {
+          Track.setVolume = (vol) => {
             Track.volume = vol;
           };
           Track.isEnded = () => {
@@ -47,7 +47,7 @@ class SC {
           Track.getDuration = () => {
             return Track.duration;
           };
-          Track.seek = to => {
+          Track.seek = (to) => {
             Track.currentTime = to;
           };
           Track.isPlaying = () => {
@@ -66,7 +66,7 @@ class SC {
           };
           resolve(Track);
         })
-        .catch(err => reject(err));
+        .catch((err) => reject(err));
     });
   }
 }

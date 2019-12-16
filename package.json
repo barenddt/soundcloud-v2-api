@@ -1,6 +1,6 @@
 {
   "name": "soundcloud-v2-api",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "description": "Promise based Soundcloud V2 API interaction.",
   "main": "index.js",
   "scripts": {

@@ -45,35 +45,42 @@ class SC {
         }
       })
         .then((res) => {
-          console.log(res);
-          let Track = new Audio(res.data[0].media.transcodings[1].url);
-          Track.setVolume = (vol) => {
-            Track.volume = vol;
-          };
-          Track.isEnded = () => {
-            return Track.ended;
-          };
-          Track.getDuration = () => {
-            return Track.duration;
-          };
-          Track.seek = (to) => {
-            Track.currentTime = to;
-          };
-          Track.isPlaying = () => {
-            if (Track.defaultPlaybackRate > 0) {
-              return true;
-            } else {
-              return false;
+          let newUrl = `https://cors-anywhere.herokuapp.com/${res.data[0].media.transcodings[1].url}?client_id=${this.config.clientId}`;
+          axios({
+            url: newUrl,
+            headers: {
+              "x-requested-with": "https://soundcloud.com"
             }
-          };
-          Track.isActuallyPlaying = () => {
-            if (Track.defaultPlaybackRate > 0) {
-              return true;
-            } else {
-              return false;
-            }
-          };
-          resolve(Track);
+          }).then((song) => {
+            let Track = new Audio(song.data.url);
+            Track.setVolume = (vol) => {
+              Track.volume = vol;
+            };
+            Track.isEnded = () => {
+              return Track.ended;
+            };
+            Track.getDuration = () => {
+              return Track.duration;
+            };
+            Track.seek = (to) => {
+              Track.currentTime = to;
+            };
+            Track.isPlaying = () => {
+              if (Track.defaultPlaybackRate > 0) {
+                return true;
+              } else {
+                return false;
+              }
+            };
+            Track.isActuallyPlaying = () => {
+              if (Track.defaultPlaybackRate > 0) {
+                return true;
+              } else {
+                return false;
+              }
+            };
+            resolve(Track);
+          });
         })
         .catch((err) => reject(err));
     });
